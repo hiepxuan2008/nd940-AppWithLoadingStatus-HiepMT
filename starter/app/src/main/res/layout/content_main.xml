@@ -9,14 +9,132 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.udacity.LoadingButton
-        android:id="@+id/custom_button"
-        android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/imageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/header_image_content_description"
+        android:src="@drawable/ic_baseline_cloud_download_24"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_height="60dp"
-        android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelChooseRepository"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/choose_repository_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageHeader" />
+
+
+    <View
+        android:id="@+id/dividerLine1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/divider_line_height"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/divider_line_color"
+        app:layout_constraintBottom_toBottomOf="@+id/labelChooseRepository"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelChooseRepository"
+        app:layout_constraintTop_toTopOf="@+id/labelChooseRepository" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelChooseRepository">
+
+        <RadioButton
+            android:id="@+id/rbGlide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text="@string/file_name_glide"
+            android:textSize="@dimen/radio_button_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbUdacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:text="@string/file_name_udacity"
+            android:textSize="@dimen/radio_button_text_size" />
+
+        <RadioButton
+            android:id="@+id/rbRetrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:text="@string/file_name_retrofit"
+            android:textSize="@dimen/radio_button_text_size" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/labelProvideCustomUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/custom_url_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupOptions" />
+
+
+    <View
+        android:id="@+id/dividerLine2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/labelProvideCustomUrl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/labelProvideCustomUrl"
+        app:layout_constraintTop_toTopOf="@+id/labelProvideCustomUrl" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtCustomUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/custom_url_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelProvideCustomUrl">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.udacity.LoadingButton
+        android:id="@+id/btnDownload"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/default_margin"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:bgColorDefaultState="@color/colorPrimary"
+        app:bgColorLoadingState="@color/colorPrimaryDark"
+        app:circleColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

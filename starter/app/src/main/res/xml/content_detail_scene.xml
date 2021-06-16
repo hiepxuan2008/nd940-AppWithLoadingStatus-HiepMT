@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1500">
+
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:touchAnchorId="@id/labelFileName"
+            app:touchAnchorSide="bottom" />
+
+        <KeyFrameSet>
+
+            <!-- labelFileName run from 0->19 -->
+            <KeyPosition
+                app:framePosition="19"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/labelFileName"
+                app:percentX="1" />
+
+            <!-- txtFileName run from 20->39 -->
+            <KeyPosition
+                app:framePosition="20"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/txtFileName"
+                app:percentX="0" />
+
+            <KeyPosition
+                app:framePosition="39"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/txtFileName"
+                app:percentX="1" />
+
+            <!-- labelStatus run from 60->79 -->
+            <KeyPosition
+                app:framePosition="60"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/labelStatus"
+                app:percentX="0" />
+
+            <KeyPosition
+                app:framePosition="79"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/labelStatus"
+                app:percentX="1" />
+
+            <!-- txtStatus run from 80->99 -->
+            <KeyPosition
+                app:framePosition="80"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/txtStatus"
+                app:percentX="0" />
+
+            <KeyPosition
+                app:framePosition="99"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/txtStatus"
+                app:percentX="1" />
+        </KeyFrameSet>
+    </Transition>
+
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/labelFileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Constraint
+            android:id="@+id/txtFileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <Constraint
+            android:id="@+id/labelStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtStatus"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Constraint
+            android:id="@+id/txtStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtFileName"
+            app:layout_constraintWidth_percent="0.5" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/labelFileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/leftGuideLine"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Constraint
+            android:id="@id/txtFileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideLine"
+            app:layout_constraintTop_toTopOf="@id/topGuideLine"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <Constraint
+            android:id="@id/labelStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtStatus"
+            app:layout_constraintStart_toStartOf="@id/leftGuideLine"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <Constraint
+            android:id="@id/txtStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@id/rightGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/txtFileName"
+            app:layout_constraintWidth_percent="0.5" />
+    </ConstraintSet>
+
+</MotionScene>
